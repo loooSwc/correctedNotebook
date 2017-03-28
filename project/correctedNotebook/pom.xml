@@ -1,13 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.notebook</groupId>
 	<artifactId>correctedNotebook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<parent>
+		<groupId>com.notebook</groupId>
+		<artifactId>build</artifactId>
+		<version>1.0.0-RELEASE</version>
+		<relativePath>../build/pom.xml</relativePath>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>com.notebook</groupId>
+			<artifactId>notebook-common</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
+	</dependencies>
 	<build>
      <plugins>
-       <plugin>
+       <!-- <plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>${tomcat7.maven.version}</version>
@@ -31,7 +43,7 @@
 						<defaultsDescriptor>webdefault.xml</defaultsDescriptor>
 					</webAppConfig>
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
