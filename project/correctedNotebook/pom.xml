@@ -16,6 +16,11 @@
 			<artifactId>notebook-common</artifactId>
 			<version>1.0.0-RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.notebook</groupId>
+			<artifactId>notebook-customer</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
 	</dependencies>
 	<build>
      <plugins>

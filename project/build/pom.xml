@@ -6,8 +6,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>../notebook-common</module>
-		
 		<module>../correctedNotebook</module>
+		<module>../notebook-customer</module>
 	</modules>
 	<properties>
 		<spring.version>4.1.0.RELEASE</spring.version>
@@ -70,7 +70,11 @@
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
