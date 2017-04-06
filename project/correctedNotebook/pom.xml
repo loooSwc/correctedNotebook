@@ -57,7 +57,6 @@
 					<warName>${project.artifactId}</warName>
 					<!-- <webXml>WebRoot/WEB-INF/web.xml</webXml> -->
 					<!-- <warSourceDirectory>WebRoot</warSourceDirectory> -->
-					<version>3.0</version>
 				</configuration>
 			</plugin>
 			<plugin>
