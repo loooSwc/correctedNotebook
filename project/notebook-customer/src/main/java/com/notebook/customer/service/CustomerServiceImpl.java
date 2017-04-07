@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.notebook.customer.dao.CustomerDao;
+import com.notebook.customer.model.BaseCustomer;
 
 @Transactional
 @Service
@@ -15,6 +16,9 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void addCustomer() {
 		System.out.println("service add");
-		customerDao.findAll();
+		Iterable<BaseCustomer> it=customerDao.findAll();
+		for (BaseCustomer baseCustomer : it) {
+			System.out.println(baseCustomer.getCusName());
+		}
 	}
 }
