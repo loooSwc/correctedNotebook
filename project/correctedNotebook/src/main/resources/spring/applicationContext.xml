@@ -18,4 +18,43 @@
 	default-lazy-init="false" default-autowire="no">
 
 	<description>Spring公共配置 </description>
+
+	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.notebook">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+
+
+	<bean id="hibernateJpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+
+	<!--加载资源文件 -->
+	<bean id="messageResource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:ApplicationResources</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<!-- Spring Data Jpa配置 -->
+	<jpa:repositories base-package="com.notebook"
+		transaction-manager-ref="transactionManager" factory-class="com.notebook.common.dao.jpa.RepositoryFactoryBean"
+		entity-manager-factory-ref="entityManagerFactory" />
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<!-- 打开aop 注解 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<util:properties id="prop" location="classpath:db.properties" />
+	<context:property-placeholder properties-ref="prop" />
+	
 </beans>
